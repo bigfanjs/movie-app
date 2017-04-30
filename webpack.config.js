@@ -7,7 +7,14 @@ const
 module.exports = {
   devtool: 'inline-source-map',
   entry: {
-    vendor: ['react', 'react-dom'],
+    vendor: [
+      'redux',
+      'react',
+      'react-dom',
+      'react-redux',
+      'react-router',
+      'react-hot-loader'
+    ],
     main: [
       'react-hot-loader/patch',
       'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
@@ -19,7 +26,7 @@ module.exports = {
     contentBase: resolve(__dirname, 'dist'),
     publicPath: '/'
   },
-  context: resolve(__dirname, 'public'),
+  context: resolve(__dirname, 'src'),
   output: {
     path: resolve(__dirname, 'dist'),
     filename: '[name].js',
