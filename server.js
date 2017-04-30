@@ -33,18 +33,6 @@ const
   webpackDevMiddleware = require('webpack-dev-middleware'),
   webpackHotMiddleware = require('webpack-hot-middleware');
 
-app.use(logger('dev'));
-app.use(bodyPasrer.json());
-app.use(cookieParser('some secret code'));
-app.use(session({
-  resave: false,
-  saveUninitialized: false,
-  secret: 'some secret code'
-}));
-app.use(methodOverride());
-app.use(express.static(path.join(__dirname, './dist')));
-app.use(admin());
-
 app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath,
   hot: true,
@@ -65,6 +53,18 @@ const isAuth = function (req, res, next) {
 
   res.status(401).end('Access Denied');
 };
+
+app.use(logger('dev'));
+app.use(bodyPasrer.json());
+app.use(cookieParser('some secret code'));
+app.use(session({
+  resave: false,
+  saveUninitialized: false,
+  secret: 'some secret code'
+}));
+app.use(methodOverride());
+app.use(express.static(path.join(__dirname, './dist')));
+app.use(admin());
 
 app.post('/admin/login', login.submit);
 
@@ -93,7 +93,7 @@ app.post(
 );
 
 app.get('*', function(req, res) {
-  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+  res.sendFile(path.resolve(__dirname, 'dist', 'app.html'));
 });
 
 app.listen(3000, function(err) {
