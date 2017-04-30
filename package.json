@@ -1,0 +1,26 @@
+{
+  "name": "movie-app-with-react",
+  "version": "1.0.0",
+  "description": "learning reactjs",
+  "main": "script.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "webpack -p -d"
+  },
+  "keywords": [],
+  "author": "Adel Jojo",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.3.2",
+    "css-loader": "^0.26.2",
+    "eslint": "^3.13.1",
+    "eslint-plugin-react": "^6.9.0",
+    "react-hot-loader": "next",
+    "style-loader": "^0.13.2",
+    "webpack": "^2.4.1"
+  }
+}
