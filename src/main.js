@@ -8,9 +8,7 @@ import App from './app';
 
 const store = createStore(movieApp);
 
-let render;
-
-(render = Component => (
+const render = Component => (
   Dom.render(
     <AppContainer>
       <Provider store={store}>
@@ -19,8 +17,10 @@ let render;
     </AppContainer>,
     document.getElementById('root')
   )
-))(App);
+);
+
+render(App);
 
 if (module.hot) {
-  module.hot.accept('./movie-app', render.bind(null, App));
+  module.hot.accept('./app', render.bind(null, App));
 }
