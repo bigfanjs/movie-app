@@ -3,7 +3,7 @@ import Dom from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-import movieApp from './app/reducers';
+import movieApp from './reducers';
 import App from './app';
 
 const store = createStore(movieApp);
