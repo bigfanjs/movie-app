@@ -1,8 +1,11 @@
-/*global __dirname*/
+/*global __dirname process*/
 
 const
   {resolve} = require('path'),
-  webpack = require('webpack');
+  webpack = require('webpack'),
+  ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const isProduction = process.env.NODE_EMV === 'production';
 
 module.exports = {
   devtool: 'inline-source-map',
@@ -37,13 +40,20 @@ module.exports = {
       { test: /\.js$/,
         use: ['babel-loader'],
         exclude: /node_modules/ },
-      { test: /\.(scss|sass)$/,
-        use: [
-          {loader: 'style-loader'},
-          {loader: 'css-loader'},
-          {loader: 'sass-loader'}
-        ],
-        exclude: /node_modules/ },
+      { test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true,
+                localIdentName: '[path][name]__[local]--[hash:base64:5]'
+              }
+            },
+            {loader: 'sass-loader'}
+          ]
+        }) },
       { test: /\.(jpg|png|svg)$/,
         use: ['url-loader'] },
       { test: /\.(ttf|eot|woff|woff2)/,
@@ -64,6 +74,10 @@ module.exports = {
       names: ['vendor', 'manifest']
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new ExtractTextPlugin({
+      filename: 'styles.css',
+      disable: !isProduction
+    })
   ]
 };
