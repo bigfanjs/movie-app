@@ -1,5 +1,5 @@
 import React from 'react';
-import Dom from 'react-dom';
+import ReactDom from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
@@ -9,7 +9,7 @@ import App from './app';
 const store = createStore(movieApp);
 
 const render = Component => (
-  Dom.render(
+  ReactDom.render(
     <AppContainer>
       <Provider store={store}>
         <Component />
