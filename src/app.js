@@ -29,10 +29,10 @@ const
 
 const Admin = asyncComponent(() => (
   fetch('/session')
-    .then(admin => () => {
-      const path = `/admin/${admin ? 'dashboard' : 'login'}`;
-      <Redirect to={path} />;
-    })
+    .then((admin) => admin.json())
+    .then((json) => <Redirect to="/admin/dashboard" {...json} />)
+    .catch(() => <Redirect to="/admin/login" />)
+    .then(Component => () => Component)
 ));
 
 export default function () {
@@ -41,11 +41,11 @@ export default function () {
       <div>
         <Route exact path="/" render={() => <Redirect to="/movies" />} />
         <Route exact path="/movies" component={Movies} />
-        <Route path="/movies/watch" component={Watch} />
+        <Route path="/movies/watch/:id" component={Watch} />
         <Route exact path="/admin" component={Admin} />
         <Route path="/admin/dashboard" component={Dashboard} />
         <Route path="/admin/dashboard/:id" component={Edit} />
-        <Route path="/admin/new" component={Edit} />
+        <Route path="/movies/new" component={Edit} />
         <Route path="/admin/login" component={Login} />
       </div>
     </Router>
