@@ -1,4 +1,4 @@
 import App from "./app";
-import reducer from "./reducer";
+import visiblePanel from "./reducer";
 
-export {App, reducer};
+export {App, visiblePanel};
