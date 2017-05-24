@@ -1,2 +1,4 @@
-import * as Navbar from "./app";
-export default Navbar;
+import {App, visiblePanel} from "./app";
+
+export {visiblePanel};
+export default App;
