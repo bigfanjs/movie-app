@@ -1,6 +1,4 @@
-// placeholder component.
-import React from "react";
+import {App, movies} from "./app";
 
-export default function () {
-  return <h1>Movies</h1>;
-}
+export {movies};
+export default App;
