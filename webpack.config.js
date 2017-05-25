@@ -1,82 +1,82 @@
 /*global __dirname process*/
 
 const
-  {resolve} = require('path'),
-  webpack = require('webpack'),
-  ExtractTextPlugin = require('extract-text-webpack-plugin');
+  {resolve} = require("path"),
+  webpack = require("webpack"),
+  ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const isProduction = process.env.NODE_EMV === 'production';
+const isProduction = process.env.NODE_EMV === "production";
 
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   entry: {
     vendor: [
-      'redux',
-      'react',
-      'react-dom',
-      'react-redux',
-      'react-router',
-      'react-hot-loader'
+      "redux",
+      "react",
+      "react-dom",
+      "react-redux",
+      "react-router",
+      "react-hot-loader"
     ],
     main: [
-      'react-hot-loader/patch',
-      'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-      './main.js'
+      "react-hot-loader/patch",
+      "webpack-hot-middleware/client",
+      "./main.js"
     ]
   },
   devServer: {
     hot: true,
-    contentBase: resolve(__dirname, 'dist'),
-    publicPath: '/'
+    contentBase: resolve(__dirname, "dist"),
+    publicPath: "/"
   },
-  context: resolve(__dirname, 'src'),
+  context: resolve(__dirname, "src"),
   output: {
-    path: resolve(__dirname, 'dist'),
-    filename: '[name].js',
-    publicPath: '/'
+    path: resolve(__dirname, "dist"),
+    filename: "[name].js",
+    publicPath: "/"
   },
   module: {
     rules: [
       { test: /\.js$/,
-        use: ['babel-loader'],
+        use: ["babel-loader"],
         exclude: /node_modules/ },
       { test: /\.scss$/,
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
+          fallback: "style-loader",
           use: [
             {
-              loader: 'css-loader',
+              loader: "css-loader",
               options: {
                 sourceMap: true,
-                localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                modules: true,
+                localIdentName: "[path][name]__[local]--[hash:base64:5]"
               }
             },
-            {loader: 'sass-loader'}
+            {loader: "sass-loader"}
           ]
         }) },
       { test: /\.(jpg|png|svg)$/,
-        use: ['url-loader'] },
+        use: ["url-loader"] },
       { test: /\.(ttf|eot|woff|woff2)/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: './fonts/[name].[ext]',
-              publicPath: '../'
+              name: "./fonts/[name].[ext]",
+              publicPath: "../"
             }
           }
         ]}
     ]
   },
   plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest']
+      names: ["vendor", "manifest"]
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin({
-      filename: 'styles.css',
+      filename: "styles.css",
       disable: !isProduction
     })
   ]
