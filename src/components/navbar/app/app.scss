@@ -1,7 +1,13 @@
 .navbar {
-  background-color: yellowgreen;
+  background-color: #3b3b3b;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0;
+  height: 50px;
+  color: #fff;
+
+  span {
+    margin-right: 100px;
+  }
 }
