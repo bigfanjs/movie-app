@@ -1,11 +1,3 @@
-import React from 'react'
+import MenuIcon from "./menu-icon";
 
-const componentName = () => {
-  return (
-    <div>
-      menu icon
-    </div>
-  )
-}
-
-export default componentName
+export default MenuIcon;
