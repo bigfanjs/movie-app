@@ -24,7 +24,7 @@ render(App);
 if (module.hot) {
   module.hot.accept("./app", render.bind(null, App));
   module.hot.accept("./reducers", function () {
-    import("./reducers") // eslint-disable-line
+    import("./reducers")
       .then(nextReducer => {
         store.replaceReducer(nextReducer.default);
       });
