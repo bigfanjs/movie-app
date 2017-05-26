@@ -1,13 +1,22 @@
-.navbar {
+._navbar {
   background-color: #3b3b3b;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 0;
   height: 50px;
   color: #fff;
+  list-style-type: none;
 
-  span {
-    margin-right: 100px;
+  li {
+    display: flex;
+    flex: 0.2;
+    justify-content: center;
+  }
+
+  ._location {
+    flex: 1;
+    justify-content: flex-start;
+    padding-left: 10px;
   }
 }
