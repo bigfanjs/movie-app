@@ -15,12 +15,14 @@ export default connect()(
       dispatch(openPanel(panel));
     };
 
+    const {_navbar, _location} = classNames;
+
     return (
-      <ul className={classNames.navbar}>
+      <ul className={_navbar}>
         <MenuIcon onOpen={handleShow} />
-        <span>
-          <h2>Movies</h2>
-        </span>
+        <li className={_location}>
+          <h1>Movies</h1>
+        </li>
         <MoreIcon onMore={handleShow} />
         <SearchIcon onSearch={handleShow} />
       </ul>
