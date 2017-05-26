@@ -1,11 +1,3 @@
-import React from 'react'
+import MoreIcon from "./more-icon";
 
-const componentName = () => {
-  return (
-    <div>
-      more icon
-    </div>
-  )
-}
-
-export default componentName;
+export default MoreIcon;
