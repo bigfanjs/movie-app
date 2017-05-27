@@ -23,8 +23,8 @@ export default connect()(
         <li className={_location}>
           <h1>Movies</h1>
         </li>
-        <MoreIcon onMore={handleShow} />
         <SearchIcon onSearch={handleShow} />
+        <MoreIcon onMore={handleShow} />
       </ul>
     );
   }
