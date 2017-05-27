@@ -1,0 +1,21 @@
+$height: 40px;
+
+.movieItem {
+  position: relative;
+  width: 50%;
+  background-color: antiquewhite;
+  float: left;
+  height:  300px;
+
+  div {
+    background-color: rgba(0, 0, 0, 0.44);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: $height;
+    color: #fff;
+    text-align: center;
+    line-height: $height;
+  }
+}
