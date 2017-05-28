@@ -9,11 +9,13 @@ import {movieList} from "./movie-list.scss";
 
 class MovieList extends React.Component {
   componentWillMount () {
-    fetch("/api/movies")
-      .then((response) => response.json())
-      .then((movies) => {
-        this.props.dispatch(addMovies(movies));
-      });
+    if (!this.props.movies.length) {
+      fetch("/api/movies")
+        .then((response) => response.json())
+        .then((movies) => {
+          this.props.dispatch(addMovies(movies));
+        });
+    }
   }
   
   render() {
@@ -27,16 +29,4 @@ class MovieList extends React.Component {
   }
 }
 
-const mapStateToProps = function ({movies}) {
-  return {movies};
-}
-
-export default connect(mapStateToProps)(MovieList);
-
-// import React from "react";
-
-// export default function () {
-//   return (
-//     <div>Movie List!</div>
-//   );
-// }
+export default connect(({movies}) => ({movies}))(MovieList);
