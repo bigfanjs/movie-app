@@ -7,11 +7,11 @@ import FilterIcon from "../filter-icon";
 
 import {setLocation, showFilter} from "./action";
 
-import {menu, hide, show} from "./app.scss";
+import styles from "./app.scss";
 
 function Menu({className, onSelect, openFilter}) {
   return (
-    <ul className={menu + " " + className}>
+    <ul className={styles.menu + " " + className}>
       <li>
         <h1>Movie App</h1>
       </li>
@@ -25,7 +25,7 @@ function Menu({className, onSelect, openFilter}) {
 const
   mapStateToProps = function ({visiblePanel}) {
     return {
-      className: visiblePanel === "menu" ? show : hide
+      className: visiblePanel === "menu" ? styles.show : styles.hide
     };
   },
   mapDispatchToProps = function (dispatch) {
