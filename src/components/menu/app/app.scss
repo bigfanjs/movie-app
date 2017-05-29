@@ -1,0 +1,53 @@
+$liHeight: 60px;
+
+.menu {
+  position: absolute;
+  background-color: #fff;
+  width: 80%;
+  height: 100%;
+  z-index: 12;
+  overflow: hidden;
+
+  li {
+    position: relative;
+    background-color: #f3f3f3;
+    height: 70px;
+    color: #000;
+
+    svg, h4 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    svg {
+      left: 35%;
+    }
+
+    h1 {
+      left: 50%;
+    }
+  }
+
+  li:first-child {
+    background-color: #36a0fd;
+    color: #fff;
+    height: $liHeight;
+    line-height: $liHeight;
+    padding-left: 20px;
+  }
+}
+
+.selected {
+  background-color: lightgrey;
+  border-left: 10px solid #3a84c5;
+}
+
+.hide {
+
+}
+
+.show {
+
+}
