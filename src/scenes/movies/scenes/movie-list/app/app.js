@@ -6,8 +6,6 @@ import Shadow from "../../../../../components/shadow";
 
 import MovieList from "../movie-list";
 
-// import classNames from "./app.scss";
-
 export default function () {
   return (
     <div>
