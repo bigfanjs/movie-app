@@ -12,8 +12,8 @@ export default function () {
   return (
     <li className={styles.arrowIcon}>
       <svg
-        width="50"
-        height="50"
+        width="30"
+        height="30"
         viewBox="0 0 31.494 31.494">
         <path d={arrow}></path>
       </svg>
