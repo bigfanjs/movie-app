@@ -1,7 +1,12 @@
 .searchInput {
   background-color: #fff;
-  display: flex;
   position: relative;
-  height: 65px;
-  align-items: center;
+  border-bottom: 2px solid #8ecaeb;
+  flex: 0.1;
+
+  ul {
+    height: 65px;
+    display: flex;
+    align-items: center;
+  }
 }

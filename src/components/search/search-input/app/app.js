@@ -7,9 +7,11 @@ import styles from "./app.scss";
 
 export default function () {
   return (
-    <ul className={styles.searchInput}>
-      <ArrowIcon />
-      <FormInput />
-    </ul>
+    <li className={styles.searchInput}>
+      <ul>
+        <ArrowIcon />
+        <FormInput />
+      </ul>
+    </li>
   );
 }
