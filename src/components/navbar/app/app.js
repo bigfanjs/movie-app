@@ -13,6 +13,7 @@ export default connect()(
   function ({location, dispatch}) {
     const handleShow = function (panel) {
       dispatch(openPanel(panel));
+      document.body.style.overflowY = "hidden";
     };
 
     const {_navbar, _location} = classNames;

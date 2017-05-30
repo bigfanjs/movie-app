@@ -31,6 +31,7 @@ class Menu extends React.Component {
 
     if (menu && !menu.contains(e.target)) {
       this.props.closeMenu();
+      document.body.style.overflowY = "visible";
     }
   }
   
