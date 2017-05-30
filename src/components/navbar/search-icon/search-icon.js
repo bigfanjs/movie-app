@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function ({onOpen}) {
+export default function ({onSearch}) {
   return (
     <li>
       <svg
-        onClick={onOpen}
+        onClick={onSearch.bind(null, "search")}
         xmlns="http://www.w3.org/2000/svg"
         width="30" height="30"
         viewBox="0 0 410.587 410.588">
