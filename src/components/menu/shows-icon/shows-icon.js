@@ -1,7 +1,5 @@
 import React from "react";
 
-import styles from "./shows-icon.scss";
-
 const path = `
   M420.135,110.203H280.091l49.728-81.594c4.312-7.074,2.072-16.304-5.002-20.615c-7.073-4.313-16.304-2.072-20.615,5.002
   l-59.243,97.207h-36.916L148.8,12.996c-4.311-7.072-13.541-9.312-20.615-5.002c-7.074,4.312-9.314,13.541-5.002,20.615
@@ -15,7 +13,7 @@ const path = `
 
 export default function () {
   return (
-    <li className={styles.showsIcon}>
+    <li>
       <svg width="20" height="20" viewBox="0 0 452.392 452.393">
         <path d={path}></path>
       </svg>
