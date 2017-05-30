@@ -11,3 +11,10 @@ export function showFilter() {
     filter: true
   };
 }
+
+export function closeMenu() {
+  return {
+    type: "TOGGLE_PANEL",
+    panel: false
+  };
+}
