@@ -1,6 +1,6 @@
 export default function openPanel(panel) {
   return {
-    type: "OPEN_PANEL",
+    type: "TOGGLE_PANEL",
     panel: panel
   };
 }
