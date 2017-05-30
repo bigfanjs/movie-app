@@ -1,5 +1,2 @@
-import React from "react";
-
-export default function () {
-  return <li>Search Result!</li>;
-}
+import SearchResult from "./search-result";
+export default SearchResult;
