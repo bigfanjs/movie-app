@@ -1,4 +1,7 @@
 import React from "react";
+import {connect} from "react-redux";
+
+import closeSearch from "./action";
 
 import styles from "./arrow-icon.scss";
 
@@ -8,15 +11,24 @@ const arrow = `
   c-0.444,0.444-1.143,0.444-1.587,0l-9.952-9.952c-0.429-0.429-0.429-1.143,0-1.571L10.273,5.009z
 `;
 
-export default function () {
-  return (
-    <li className={styles.arrowIcon}>
-      <svg
-        width="30"
-        height="30"
-        viewBox="0 0 31.494 31.494">
-        <path d={arrow}></path>
-      </svg>
-    </li>
-  );
-}
+export default connect()(
+  function ({dispatch}) {
+    const onClose = function () {
+      dispatch(closeSearch());
+      document.body.style.overflowY = "visible";
+    };
+
+    return (
+      <li
+        className={styles.arrowIcon}
+        onClick={onClose}>
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 31.494 31.494">
+          <path d={arrow} />
+        </svg>
+      </li>
+    );
+  }
+);
