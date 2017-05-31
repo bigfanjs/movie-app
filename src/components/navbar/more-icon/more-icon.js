@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function ({onOpen}) {
+export default function ({onMore}) {
   return (
-    <li onClick={onOpen}>
+    <li onClick={onMore.bind(null, "more")}>
       <svg width="6" height="26">
         <circle cx="3" cy="3" r="3" fill="#fff" />
         <circle cx="3" cy="13" r="3" fill="#fff" />

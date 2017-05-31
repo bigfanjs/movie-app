@@ -1,0 +1,36 @@
+$height: 40px;
+
+.more {
+  background-color: #fff;
+  position: fixed;
+  z-index: 20;
+  right: 5px;
+  top: 60px;
+  width: 190px;
+  border-radius: 6px;
+
+  &:before {
+    position: absolute;
+    content: " ";
+    width: 0;
+    height: 0;
+    left: 158px;
+    right: auto;
+    top: -21px;
+    bottom: auto;
+    border: 11px solid;
+    border-color: transparent transparent #fff transparent;
+  }
+
+  li {
+    height: $height;
+    text-align: center;
+    line-height: $height;
+  }
+
+  a {
+    text-decoration: none;
+    color: #3387cb;
+    font-size: 1.33333em;
+  }
+}
