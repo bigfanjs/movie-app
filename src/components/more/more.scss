@@ -34,3 +34,29 @@ $height: 40px;
     font-size: 1.33333em;
   }
 }
+
+.enter {
+  opacity: 0.01;
+  transform: scale(0.4);
+  transform-origin: top right;
+}
+
+.enterActive {
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: top right;
+  transition: opacity 300ms ease-in, transform 300ms ease-in;
+}
+
+.leave {
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: top right;
+}
+
+.leaveActive {
+  opacity: 0.01;
+  transform: scale(0.4);
+  transform-origin: top right;
+  transition: opacity 200ms ease-in, transform 200ms ease-in;
+}
