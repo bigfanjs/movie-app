@@ -11,7 +11,7 @@ const mapStateToProps = function ({visiblePanel}) {
   const {shadow, darken, lighten} = styles;
 
   return {
-    className: `${shadow} ${visiblePanel != false && visiblePanel != null ? darken : lighten}`
+    className: `${shadow} ${visiblePanel ? darken : visiblePanel == false ? lighten : ""}`
   };
 }
 
