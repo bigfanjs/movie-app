@@ -1,8 +1,17 @@
 import React from "react";
+import {connect} from "react-redux";
 
-export default function ({onSearch}) {
+import TouchAction from "../../touch-action";
+
+function SearchIcon({onSearch, onTouchStart, onTouchFinish, isTouched}) {
   return (
-    <li onClick={onSearch.bind(null, "search")}>
+    <li onClick={onTouchStart.bind(null, "search")}>
+      { isTouched &&
+        <TouchAction
+          onOpen={onSearch.bind(null, "search")}
+          onTouchFinish={onTouchFinish}
+          />
+      }
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="30" height="30"
@@ -21,3 +30,9 @@ export default function ({onSearch}) {
     </li>
   );
 }
+
+const mapStateToProps = function ({ touchedIcon }) {
+  return { isTouched: touchedIcon === "search" };
+};
+
+export default connect(mapStateToProps)(SearchIcon);

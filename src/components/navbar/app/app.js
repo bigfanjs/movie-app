@@ -20,8 +20,16 @@ const Navbar = function ({handleTouchStart, handleTouchFinish, handleShow}) {
       <li className={styles.location}>
         <h1>Movies</h1>
       </li>
-      <SearchIcon onSearch={handleShow} />
-      <MoreIcon onMore={handleShow} />
+      <SearchIcon
+        onTouchStart={handleTouchStart}
+        onTouchFinish={handleTouchFinish}
+        onSearch={handleShow}
+        />
+      <MoreIcon
+        onTouchStart={handleTouchStart}
+        onTouchFinish={handleTouchFinish}
+        onMore={handleShow}
+        />
     </ul>
   );
 };

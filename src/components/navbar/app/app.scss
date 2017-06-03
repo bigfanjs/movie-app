@@ -16,6 +16,10 @@
     flex: 0.2;
     justify-content: center;
     align-items: center;
+
+    svg {
+      z-index: 10;
+    }
   }
 
   .location {
