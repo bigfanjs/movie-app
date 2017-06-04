@@ -73,8 +73,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(
         leave: styles.leave,
         leaveActive: styles.leaveActive
       }}
-      transitionEnterTimeout={300}
-      transitionLeaveTimeout={200}>
+      transitionEnterTimeout={200}
+      transitionLeaveTimeout={100}>
       { isVisible && <More onClose={closeMore} isVisible={isVisible} /> }
     </CSSTransitionGroup>
   )

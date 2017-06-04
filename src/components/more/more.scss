@@ -45,7 +45,7 @@ $height: 40px;
   opacity: 1;
   transform: scale(1);
   transform-origin: top right;
-  transition: opacity 300ms ease-in, transform 300ms ease-in;
+  transition: opacity 200ms ease-in, transform 200ms ease-in;
 }
 
 .leave {
@@ -58,5 +58,5 @@ $height: 40px;
   opacity: 0.01;
   transform: scale(0.4);
   transform-origin: top right;
-  transition: opacity 200ms ease-in, transform 200ms ease-in;
+  transition: opacity 100ms ease-in, transform 100ms ease-in;
 }
