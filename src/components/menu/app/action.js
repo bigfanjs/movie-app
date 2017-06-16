@@ -15,6 +15,21 @@ export function showFilter() {
 export function closeMenu() {
   return {
     type: "TOGGLE_PANEL",
-    panel: false
+    name: false,
+  };
+}
+
+export function openMenu() {
+  return {
+    type: "TOGGLE_PANEL",
+    name: "menu",
+  };
+}
+
+export function translateX(percentage, done) {
+  return {
+    type: "TRANSLATE_X",
+    percentage: percentage,
+    done: done
   };
 }

@@ -1,7 +1,7 @@
-export function openPanel(panel) {
+export function openPanel(name) {
   return {
     type: "TOGGLE_PANEL",
-    panel: panel
+    name: name
   };
 }
 

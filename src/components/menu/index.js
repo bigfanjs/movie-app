@@ -1,2 +1,4 @@
-import App from "./app";
+import App, {percentage} from "./app";
+
+export {percentage};
 export default App;
