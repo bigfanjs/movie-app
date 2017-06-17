@@ -14,10 +14,12 @@ class TouchAction extends React.Component {
     });
 
     anim.onfinish = () => {
-      const {onTouchFinish, onOpen} = this.props;
+      const {onTouchFinish, onOpen, translateX} = this.props;
 
       onTouchFinish();
       onOpen();
+
+      translateX && translateX(0, false);
     };
   }
 

@@ -40,10 +40,11 @@ class Menu extends React.Component {
 
     const
       menu = this.menu,
-      percent = this.props.percentage,
       isTouchOut = menu && !menu.contains(e.target);
+    
+    const {percentage, isVisible} = this.props;
 
-    if (percent < -50 || (percent == 0 && isTouchOut)) {
+    if (percentage < -50 || (isVisible && isTouchOut)) {
       this.props.closeMenu();
       this.props.translateX(-100, true);
     } else {

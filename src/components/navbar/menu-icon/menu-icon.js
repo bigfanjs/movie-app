@@ -3,12 +3,15 @@ import {connect} from "react-redux";
 
 import TouchAction from "../../touch-action";
 
-function MenuIcon({onOpen, onTouchStart, onTouchFinish, isTouched}) {
+import {translateX} from "./action";
+
+function MenuIcon({onOpen, onTouchStart, onTouchFinish, isTouched, dispatch}) {
   return (
     <li onClick={onTouchStart.bind(null, "menu")}>
       { isTouched &&
         <TouchAction
           onOpen={onOpen.bind(null, "menu")}
+          translateX={(p, done) => { dispatch(translateX(p, done)); }}
           onTouchFinish={onTouchFinish}
           />
       }
