@@ -27,7 +27,7 @@ class Menu extends React.Component {
     document.addEventListener("touchend", this.handleTouchEnd, false);
     document.addEventListener("touchmove", this.handleTouchMove, false);
   }
-  
+
   handleTouchStart(e) {
     this.clientX = e.touches[0].clientX;
     this.touch = true;
@@ -41,20 +41,24 @@ class Menu extends React.Component {
     const
       menu = this.menu,
       isTouchOut = menu && !menu.contains(e.target);
-    
+
     const {percentage, isVisible} = this.props;
 
-    if (percentage < -50 || (isVisible && isTouchOut)) {
+    if (percentage < -50 || (isVisible && isTouchOut && !this.touchMove)) {
       this.props.closeMenu();
       this.props.translateX(-100, true);
     } else {
       this.props.openMenu();
       this.props.translateX(0, true);
     }
+
+    this.touchMove = false;
   }
 
   handleTouchMove(e) {
     if (!this.props.isVisible && this.clientX > 20) return;
+
+    this.touchMove = true;
 
     const
       width = 80 * window.innerWidth / 100,
