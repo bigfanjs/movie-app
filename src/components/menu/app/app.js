@@ -10,7 +10,9 @@ import {
   showFilter,
   closeMenu,
   openMenu,
-  translateX
+  translateX,
+  touchstart,
+  touchend
 } from "./action";
 
 import styles from "./app.scss";
@@ -30,11 +32,11 @@ class Menu extends React.Component {
 
   handleTouchStart(e) {
     this.clientX = e.touches[0].clientX;
-    this.touch = true;
+    this.props.touchstart();
   }
 
   handleTouchEnd(e) {
-    this.touch = false;
+    this.props.touchend();
 
     if (!this.props.isVisible && this.clientX > 20) return;
 
@@ -46,19 +48,15 @@ class Menu extends React.Component {
 
     if (percentage < -50 || (isVisible && isTouchOut && !this.touchMove)) {
       this.props.closeMenu();
-      this.props.translateX(-100, true);
+      this.props.translateX(-100);
     } else {
       this.props.openMenu();
-      this.props.translateX(0, true);
+      this.props.translateX(0);
     }
-
-    this.touchMove = false;
   }
 
   handleTouchMove(e) {
     if (!this.props.isVisible && this.clientX > 20) return;
-
-    this.touchMove = true;
 
     const
       width = 80 * window.innerWidth / 100,
@@ -66,15 +64,15 @@ class Menu extends React.Component {
       value = this.props.initPercent + (clientX / width * 100),
       percentage = Math.max(-100, Math.min(value, 0));
 
-    this.props.translateX(percentage, false);
+    this.props.translateX(percentage);
   }
 
   render() {
-    const {onSelect, openFilter, percentage, initPercent} = this.props;
+    const {onSelect, openFilter, percentage, initPercent, isHeld} = this.props;
 
     const style = {
-      transform: `translateX(${ this.touch ? percentage : initPercent }%)`,
-      transition: !this.touch ? "transform 100ms ease-in" : "none"
+      transform: `translateX(${ isHeld ? percentage : initPercent }%)`,
+      transition: !isHeld ? "transform 100ms ease-in" : "none"
     };
 
     return (
@@ -94,10 +92,11 @@ class Menu extends React.Component {
 }
 
 const
-  mapStateToProps = function ({visiblePanel, percentage}) {
+  mapStateToProps = function ({visiblePanel, percentage, touch}) {
     return {
       isVisible: visiblePanel === "menu",
       initPercent: visiblePanel === "menu" ? 0 : -100,
+      isHeld: touch,
       percentage
     };
   },
@@ -108,6 +107,12 @@ const
       },
       translateX: function (percentage) {
         dispatch(translateX(percentage));
+      },
+      touchstart: function () {
+        dispatch(touchstart());
+      },
+      touchend: function () {
+        dispatch(touchend());
       },
       closeMenu: dispatch.bind(null, closeMenu()),
       openMenu: dispatch.bind(null, openMenu()),

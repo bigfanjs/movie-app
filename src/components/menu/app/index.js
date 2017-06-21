@@ -1,5 +1,5 @@
 import App from "./app";
-import percentage from "./reducer";
+import {percentage, touch} from "./reducer";
 
-export {percentage};
+export {percentage, touch};
 export default App;

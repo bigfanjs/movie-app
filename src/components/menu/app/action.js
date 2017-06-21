@@ -26,10 +26,23 @@ export function openMenu() {
   };
 }
 
-export function translateX(percentage, done) {
+export function touchstart() {
+  return {
+    type: "TOUCH_SCREEN",
+    isHeld: true
+  };
+}
+
+export function touchend() {
+  return {
+    type: "TOUCH_SCREEN",
+    isHeld: false
+  };
+}
+
+export function translateX(percentage) {
   return {
     type: "TRANSLATE_X",
-    percentage: percentage,
-    done: done
+    percentage: percentage
   };
 }
